@@ -1,20 +1,24 @@
-use std::io;
-use rand::rng;
+use std::env;
 
-fn main(){
-    
-    let mut input_long_str = String::new();
-    let mut tips_code = String::new();
+fn main() {
+    let args: Vec<String> = env::args().collect();
 
-    io::stdin()
-        .read_line(&mut input_long_str)
-        .expect("BulbaZavr");
-    let input_long: u32 = input_long_str.trim().parse().expect("BulbaZavr");
+    if args.len() != 3 {
+        eprintln!("Usage: mcd <pattern> <length>");
+        return;
+    }
 
-    io::stdin()
-        .read_line(&mut tips_code)
-        .expect("BulbaZavr");
-    let tips_code: String = tips_code.trim();
+    let _pattern = &args[1];
 
-    
+    let _length = args[2]
+        .parse::<u64>()
+        .unwrap_or_else(|_| {
+            eprintln!("Invalid number: {}", args[2]);
+            std::process::exit(1);
+        });
+}
+
+
+fn generate(){
+    //use Xorshift
 }

@@ -2,5 +2,5 @@
 name = "MCD"
 version = "0.1.0"
 edition = "2024"
-rand = 0.9.1
+
 [dependencies]
