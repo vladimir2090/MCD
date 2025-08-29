@@ -25,7 +25,7 @@ The idea behind **MCD** is simple:
 mcd 4
 ```
 
-👉 and get a **4-digit memorable code**, e.g. `5829`.
+👉 and get a **4-digit memorable code**, e.g. `5828`.
 
 * If you just run `mcd` without arguments → default is `4 digits`.
 
@@ -78,13 +78,13 @@ git clone https://github.com/vladimir2090/MCD
 cd MCD
 ```
 
-2. Build binary:
+2.Build binary:
 
 ```bash
 cargo build --release
 ```
 
-3. Run generator:
+3.Run generator:
 
 ```bash
 mcd 6
@@ -92,7 +92,7 @@ mcd 6
 
 Example output:
 
-```
+```bash
 length: 6
 Next digit: 34
 Next digit: 17
