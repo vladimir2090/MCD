@@ -33,16 +33,18 @@ fn main() {
     };
 
     let unique_symbols = max(2, min(length - 1, 8));
-    let letters = ['a','b','c','d','e','f','g','h'];
-    let chosen: Vec<char> = letters[..unique_symbols].to_vec();
+    //let letters = ['a','b','c','d','e','f','g','h'];
+    //let _chosen: Vec<char> = letters[..unique_symbols].to_vec();
 
     let seed = match SystemTime::now().duration_since(UNIX_EPOCH) {
         Ok(duration) => ((duration.as_nanos() as u8) + length as u8) % 255,
-        Err(_) => 17,
+        Err(_) => {
+            eprintln!("Error: invalid system time. code: 2");
+            17},
     };
     let mut rng = Xorshift8::new(seed);
-
     let mut digits_pool: Vec<u8> = (0..10).collect();
+    
     for i in (1..digits_pool.len()).rev() {
         let j = (rng.next() as usize) % (i + 1);
         digits_pool.swap(i, j);
@@ -52,7 +54,7 @@ fn main() {
 
     for i in 0..length {
         let idx = i % unique_symbols;
-        print!("{}{}", chosen[idx], letter_digits[idx]);
+        print!("{}", letter_digits[idx]);
     }
     println!();
 }

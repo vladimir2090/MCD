@@ -39,9 +39,13 @@ This makes it quick and predictable: short codes, same behavior every time.
 
 * ✅ Custom RNG implementation (`Xorshift8`)
 * ✅ CLI length argument
-* ✅ Default length = 4 digits
 * ⏳ Planned: alphanumeric codes (e.g. `X7A9`)
-* ⏳ Planned: word-based memorable codes (e.g. `sun-dog-42`)
+* ⏳ Planned: --digits → only digits
+* ⏳ Planned: --letters → only letters
+* ⏳ Planned: --custom abcxyz → user defined pool
+* ⏳ Planned: --format plain|json|spaced → output format
+* ⏳ Planned: -n 10 → generate multiple lines
+* ⏳ Planned: --seed 12345 → reproducible results
 * ⏳ Planned: config file for defaults
 * ⏳ Planned: export options (clipboard, file)
 
@@ -62,8 +66,7 @@ This makes it quick and predictable: short codes, same behavior every time.
 | Code | Meaning                               |
 | ---- | ------------------------------------- |
 | 1    | Invalid input (e.g. `mcd gg`)         |
-| 2    | Out of range (too large length)       |
-| 3    | Internal generator error              |
+| 2    | Invalid system time                   |
 
 If you see an error, check this table first — quick debugging guide right inside README.
 
@@ -93,13 +96,7 @@ mcd 6
 Example output:
 
 ```bash
-length: 6
-Next digit: 34
-Next digit: 17
-Next digit: 89
-Next digit: 21
-Next digit: 42
-Next digit: 56
+342183
 ```
 
 ---
